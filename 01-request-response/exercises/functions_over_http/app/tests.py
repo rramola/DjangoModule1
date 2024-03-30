@@ -43,5 +43,5 @@ class TestOrderTotal(SimpleTestCase):
         self.assertContains(response, "17.5")
 
     def test_order_total_4_3_2(self):
-        response = self.client.get("/order-total/4/3/2/")
+        response = self.client.get("/order-total/4/3/2")
         self.assertContains(response, "24.5")
