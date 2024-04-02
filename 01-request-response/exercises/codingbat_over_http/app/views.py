@@ -4,12 +4,10 @@ from django.http import HttpResponse
 
 
 def warmup_one_view(request, num):
-    x = abs(num - 100)
-    y = abs(num - 200)
-    if x > 10 or y > 10:
-        return HttpResponse(False)
-    else:
+    if num > 89 and num < 111 or num > 189 and num < 211:
         return HttpResponse(True)
+    else:
+        return HttpResponse(False)
 
 
 def warmup_two_view(request, word):
@@ -41,12 +39,15 @@ def warmup_three_view(request, word):
 
 
 def warmup_four_view(request, num1, num2, num3):
-    numbers = [num1, num2, num3]
-    total = 0
-    for num in numbers:
-        if num1 == num2 or num3:
-            numbers.remove(num1)
-        if num2 == num3:
-            numbers.remove(num2)
+    total = num1 + num2 + num3
 
-    return HttpResponse(sum(numbers))
+    if num1 == num2:
+        total -= (num1 + num2)
+    if num2 == num3:
+        total -= (num2 + num3)
+    if num1 == num3:
+        total -= (num1 + num3)
+    if num1 == num2 and num1 == num3:
+        total = 0
+
+    return HttpResponse(total)
