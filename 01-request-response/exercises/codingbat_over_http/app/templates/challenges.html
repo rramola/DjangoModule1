@@ -1,0 +1,28 @@
+{% extends "home.html" %}
+
+{% block content %}
+<form method=GET>
+    {{ form.as_p }}
+    <button>Submit</button>
+</form>
+
+{% if answer is not None%}:
+    <p> {{ answer }} </p>
+{% endif %}
+
+
+<hr>
+
+
+
+<form method=GET>
+    {{ form_two.as_p }}
+    <button>Submit</button>
+</form>
+
+{% if new_word is not None%}:
+    <p> {{ new_word }} </p>
+{% endif %}
+
+
+{% endblock content %}

@@ -1,0 +1,37 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    {% comment %} <form method=GET>
+        {{ form.as_p }}
+        <button>Submit</button>
+    </form>
+    
+    {% if answer is not None%}:
+        <p> {{ answer }} </p>
+    {% endif %}
+    <hr>
+    
+    <form action="{% url "warm_up_two" %}" method=GET>
+        {{ form_two.as_p }}
+        <button>Submit</button>
+    </form>
+    
+    {% if new_word is not None%}:
+        <p> {{ new_word }} </p>
+    {% endif %} {% endcomment %}
+
+    <p><button><a href={% url "challenges" %}>challenges</button></p>
+
+    {% endblock content %}
+
+
+</body>
+</html>
